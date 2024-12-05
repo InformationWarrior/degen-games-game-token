@@ -1,0 +1,83 @@
+:root {
+    --navbar-bg-color: #222;
+    --button-bg-color: #444;
+    --button-hover-bg-color: #555;
+    --button-text-color: white;
+    --invite-border-color: yellow;
+    --connect-border-color: #800080; /* Purple */
+    --sound-border-color: #f97066;
+    --button-border-radius: 12px;
+    --button-padding: 10px 15px;
+    --navbar-height: 70px; /* Reduced Navbar height */
+    --navbar-font-size: 24px;
+    --button-font-size: 14px;
+  }
+  
+  .navbar {
+    background-color: var(--navbar-bg-color);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: var(--navbar-height);
+    z-index: 999;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  
+  .navbar .navbar-brand {
+    margin-left: 10px;
+    color: var(--button-text-color);
+    font-size: var(--navbar-font-size);
+  }
+  
+  .navbar-buttons {
+    display: flex;
+    gap: 10px;
+    margin-right: 20px;
+  }
+  
+  .navbar-button {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: var(--button-border-radius);
+    padding: var(--button-padding);
+    cursor: pointer;
+    font-size: var(--button-font-size);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .navbar-button:hover {
+    background-color: var(--button-hover-bg-color);
+    transform: scale(1.05);
+  }
+  
+  /* Invite Button */
+  .navbar-button.invite-button {
+    border: 1px solid var(--invite-border-color);
+  }
+  
+  /* Connect Button */
+  .navbar-button.connect-button {
+    border: 1px solid var(--connect-border-color);
+  }
+  
+  /* Sound Button */
+  .navbar-button.sound-button {
+    background-color: transparent;
+    padding: 10px;
+    border-radius: var(--button-border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid var(--sound-border-color);
+  }
+  
+  .navbar-button.sound-button svg {
+    color: var(--sound-border-color);
+  }
+  

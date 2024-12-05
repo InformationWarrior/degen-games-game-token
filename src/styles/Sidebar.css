@@ -1,0 +1,133 @@
+/* Sidebar Styles */
+:root {
+  --sidebar-bg-color: #333;
+  --sidebar-hover-color: #444;
+  --sidebar-active-color: #007bff;
+  --icon-bg-color: #555;
+  --icon-hover-bg-color: #666;
+  --text-color: white;
+}
+
+.sidebar {
+  width: 10rem;
+  height: 100vh;
+  background-color: var(--sidebar-bg-color);
+  color: var(--text-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: width 0.5s ease, transform 0.5s ease;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.sidebar.collapsed {
+  width: 70px; /* Narrow width when collapsed */
+}
+
+.sidebar-header {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 24px;
+  cursor: pointer;
+  transform: rotateZ(90deg);
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px; /* Buttons lowered by increasing margin */
+  align-items: center;
+}
+
+.sidebar-link {
+  text-decoration: none;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  flex-direction: column; /* Align text below the icon */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  padding: 8px 0; /* Adjust padding for smaller hover/active area */
+  width: 80%; /* Make hover/active width smaller than the sidebar */
+  margin: 0 auto; /* Center align the hover/active box */
+  border-radius: 8px; /* Slight rounding for the hover/active area */
+}
+
+.sidebar-link:hover {
+  background-color: var(--sidebar-hover-color); /* Dark gray for hover state */
+}
+
+.sidebar-link.active {
+  background-color: var(--sidebar-active-color); /* Blue for active state */
+}
+
+.sidebar-button {
+  display: flex;
+  flex-direction: column; /* Stack icon and text */
+  align-items: center;
+  justify-content: center;
+  width: 70px; /* Icon area width */
+  height: 70px; /* Icon area height */
+  gap: 8px; /* Space between icon and text */
+}
+
+.sidebar-button i {
+  width: 50px; /* Icon size inside the button */
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(
+    --icon-bg-color
+  ); /* Optional background for square icon */
+  border-radius: 8px; /* Slight rounding for the icon */
+  font-size: 24px; /* Adjust icon size */
+  color: var(--text-color);
+}
+
+.sidebar-button span {
+  font-size: 14px; /* Text size under the icon */
+  text-align: center; /* Center-align text */
+  word-wrap: break-word; /* Handle long labels gracefully */
+}
+
+/* Hide text when collapsed */
+.sidebar.collapsed .sidebar-button span {
+  display: none;
+}
+
+.sidebar.collapsed .sidebar-button {
+  width: 50px; /* Adjust button size when collapsed */
+  height: 50px;
+}
+
+.sidebar.collapsed .sidebar-link {
+  width: 90%; /* Adjust width for hover/active area in collapsed state */
+}
+
+.sidebar.collapsed .sidebar-link:hover,
+.sidebar.collapsed .sidebar-link.active {
+  padding: 0; /* Ensure proper square hover in collapsed state */
+}
+
+/* Mobile-Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 80px; /* Further reduced for smaller screens */
+  }
+
+  .sidebar.collapsed {
+    transform: translateX(-100%);
+  }
+
+  .sidebar-links {
+    margin-top: 30px; /* Adjust margin for smaller screens */
+  }
+}
